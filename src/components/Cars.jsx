@@ -1,19 +1,20 @@
 import React from "react";
 import car from "../practice";
+// import AnimalWork from "./destructing-cars-animal";
+
+// you can change the name of the obj in destructuring that you want to by adding : 
+
+// e.g 
+
 
 
 function Car(){
-  let [honda, tesla] = car;
-console.log(tesla);
-let {model,coloursByPopularity,speedStats} = honda;
-// console.log(coloursByPopularity);
+  const [honda, tesla] = car;
+// NOTE- : is use to assign name 
+// while :[] or :{} is use for destructing 
+const {coloursByPopularity:[hondaTopColour],speedStats: {topSpeed:hondaTopSpeed }} = honda;
 
-let hondaTopColour = coloursByPopularity;
-// let hondaSpeed = honda.speedStats;
-let hondaTopSpeed= speedStats.topSpeed;
-// console.log(hondaTopSpeed);
-let teslaTopColour = tesla.coloursByPopularity;
-let teslaTopSpeed = tesla.speedStats.topSpeed;
+const {coloursByPopularity:[teslaTopColour], speedStats:{topSpeed:teslaTopSpeed}} = tesla;
 
 return (
   <table>
@@ -37,6 +38,9 @@ return (
     <td>{hondaTopColour}</td>
   </tr>
   </tbody>
+  <tfoot>
+    {/* <AnimalWork /> */}
+  </tfoot>
 </table>
 )
 }
